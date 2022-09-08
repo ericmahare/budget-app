@@ -1,0 +1,26 @@
+
+<% if @expenditures.count > 0 %>
+  <div class="expenditure-container text-white w-100 border p-2 d-flex justify-content-between my-4 align-items-center">
+  <div class="icon-container bg-light"> 
+    <%= image_tag "#{@category_id.icon.downcase}.png", style: 'height:40px; width:auto;' %> 
+  </div>
+  <div>
+    <p class="d-inline-block"> <strong>Category:</strong> <%= @category_id.name %></p>
+    
+  </div>
+  <p> <strong>Total spent:</strong> $<%= @expenditures.first.total_expenditures(@category_id) %></p>
+  </div>
+<%end %>
+<div class="container-fluid">
+  <% @expenditures.each do |expenditure| %>
+    <div class="bg-light w-100 text-dark p-1 px-4 d-flex justify-content-between my-4 align-items-center h-25">
+    <div>
+      <p class="font-weight-bold"><%=expenditure.name%></p>
+      <p><%= distance_of_time_in_words(expenditure.created_at, DateTime.now) %> ago </p>
+    </div>
+      <p>$<%=expenditure.amount%></p>
+    </div>
+  <% end %>
+    <%= link_to "Add a new expenditure", new_user_category_expenditure_path(user_id: current_user.id, category_id: @category_id), class: 'btn btn-success w-100 mb-5 text-light'%>
+</div>
+<%= link_to '<<Back', user_categories_path(current_user), class: "text-white"%>

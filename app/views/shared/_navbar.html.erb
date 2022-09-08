@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light d-flex text-light">
+  <div>
+    <a class="navbar-brand" href="#">
+      <i class="fa fa-bars text-light"></i>
+    </a>
+  </div>
+  <div class="justify-content-between w-75 text-center font-weight-bold h3 ml-5">
+    <%=@header%>
+  </div>
+  <div class="justify-content-end text-light" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+       <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-item nav-link text-light"%>
+       <%else%>
+        <%= link_to "Login", new_user_session_path, :class => 'nav-item nav-link'  %>
+        <%= link_to "Signup", new_user_registration_path, :class => 'nav-item nav-link'  %>
+       <%end%>
+    </div>
+  </div>
+</nav>
