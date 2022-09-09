@@ -1,4 +1,4 @@
-# Blog-App
+# E-budget-App
 This is a blog application where users can add, like, comment and manage their blog posts.
 ## Built With
 
@@ -64,7 +64,7 @@ Feel free to check the [issues page](../../issues/).
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-- Gregoire Vella for the original Design
+- [Gregoire Vella](https://www.behance.net/gregoirevella) for the original Design
 - Hat tip to microverse and anyone who supported me through out the project
 
 ## 📝 License
