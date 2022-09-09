@@ -5,8 +5,7 @@ This is a blog application where users can add, like, comment and manage their b
 - [x] Programming Language: Ruby
 - [x] Framework: Ruby on Rails
 - [x] Linter: [Rubocop](https://rubocop.org/)
-## Live Demo
-- [View Website](https://e-budget-erik.herokuapp.com/)
+
 ## Video Demo
 - [Presentation](https://www.loom.com/share/136f411069f04006bcbe9b9c98bb9cff)
 ## Getting Started
