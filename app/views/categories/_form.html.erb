@@ -1,0 +1,29 @@
+<%= form_with(model: @category, url: user_categories_path, data: { turbo: false }) do |f| %>
+  <div class="nav-header">
+    <h4 class="text-gray-4"> NEW CATEGORY</h4>
+  </div>
+<% if @category.errors.any? %>
+    <div class="text-danger ">
+      <p><%= pluralize(@category.errors.count, "error") %> prohibited this expenditure from being saved:</p>
+      <ul>
+        <% @category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class= "form-group-custom" >
+      <%= f.text_field :name,   class:"form-control", placeholder: "Enter category name", autofocus: true %>
+    </div>
+
+    <div class= "form-group-custom" >
+      <%= f.label :icon, "Select label for an icon:", class: "label text-gray-2" %>
+      <%= f.select  :icon, ["Education", "Entertainment", "Healthcare", "Shopping", "Utilities", "Other" ], class:"form-control text-dark" %>
+    </div>
+    
+    <div>
+        <%=  f.submit ('Add'), class:"btn btn-success w-100 mt-5" %>
+    </div> 
+  </div> 
+  
+  <% end %>

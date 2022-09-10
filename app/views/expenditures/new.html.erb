@@ -1,0 +1,33 @@
+<%= form_with(model: @expenditure,  url:"/users/#{current_user.id}/categories/#{@category_id}/expenditures", data: { turbo: false }) do |form| %>
+
+  <div class="nav-header">
+    <h4 class="text-gray-4">NEW EXPENDITURE </h4>
+  </div>
+  <% if @expenditure.errors.any? %>
+    <div style="color: red">
+      <p><%= pluralize(@expenditure.errors.count, "error") %> prohibited this expenditure from being saved:</p>
+
+      <ul>
+        <% @expenditure.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class= "form-group-custom" >
+      <%= form.text_field :name,   class:"form-control mt-2", placeholder: "Enter expenditure name", autofocus: true %>
+    </div>
+
+ <div class= "form-group-custom" >
+      <%= form.number_field :amount,   class:"form-control text-dark mt-2", placeholder: "Enter expenditure amount", autofocus: true %>
+  </div>
+
+  <div class= "form-group d-flex" >
+  
+  <div>
+      <%=  form.submit ('SUBMIT'), class:"btn btn-success w-100 mt-4" %>
+    </div> 
+  </div> 
+<% end %>
+<%= link_to "<<Back", user_category_expenditures_path(user_id: current_user.id, category_id: @category_id), class: "text-white" %>

@@ -1,0 +1,19 @@
+<div id="categories">
+  <% if @categories %>
+    <% @categories.each do |category| %>
+    <a href = "/users/<%= category.users_id %>/categories/<%= category.id %>/expenditures" >
+    <div class= 'category-container'>
+      <div class="icon-container"> 
+        <%= image_tag "#{category.icon.downcase}.png", style: 'height:40px; width:auto;' %>  <%= category.icon%>
+      </div>
+        <div><%= category.name %></div>
+      <div> Total: $<%= category.total_spent(category.id)%></div>
+    </div>
+    </a>
+    <% end %>
+  <% end %>
+</div>
+<div class="container-fluid mb-5">
+  <%= link_to 'ADD A NEW CATEGORY', new_user_category_path(current_user), class:  'btn btn-success text-white w-100' %>
+<div>
+  
